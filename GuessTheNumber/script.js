@@ -76,16 +76,34 @@ function endGame(){
 }
 
 function newGame(){
+    
     const newGameButton = document.querySelector('#newGame')
     newGameButton.addEventListener('click', (e)=>{
-        randNum = (Math.random()*100+1).toFixed()
+        randNum = parseInt(Math.random() * 100 + 1);
         prevGuess = []
-        newGuess = 1
+        numGuess = 1
         guessSlot.innerHTML = ''
-        remaining.innerHTML = `${11-numGuess}`
+        remaining.innerHTML = 10
         input.removeAttribute('disabled')
-        playGame= true
+        
         startOver.removeChild(p)
+
+        playGame= true
     })
 
 }
+
+// function newGame() {
+//     const newGameButton = document.querySelector('#newGame');
+//     newGameButton.addEventListener('click', function (e) {
+//       randomNumber = parseInt(Math.random() * 100 + 1);
+//       prevGuess = [];
+//       numGuess = 1;
+//       guessSlot.innerHTML = '';
+//       remaining.innerHTML = 10;
+//       userInput.removeAttribute('disabled');
+//       startOver.removeChild(p);
+  
+//       playGame = true;
+//     });
+//   }
