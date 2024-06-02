@@ -2,7 +2,7 @@ startButton = document.getElementById("start")
 stopButton = document.getElementById("stop")
 
 
-
+let intervalId;
 function changeColor(){
     const hex = "0123456789ABCDEF"
     let color = '#'
@@ -11,17 +11,24 @@ function changeColor(){
         randomValue = (Math.random()*15).toFixed()
         color = color + hex[randomValue]
     }
-    
+
     document.body.style.backgroundColor = color
 }
 
 const colorInterval = ()=>{
-    intervalId = setInterval(changeColor, 500)
+    startButton.setAttribute('disabled', '');
+
+    if(!intervalId){
+        intervalId = setInterval(changeColor, 500)
+    }
+    
     
 }
 
 const stopColorInterval = ()=>{
+    startButton.removeAttribute('disabled');
     clearInterval(intervalId)
+    intervalId = null;
 }
 
 
